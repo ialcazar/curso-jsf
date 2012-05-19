@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<faces-config xmlns="http://java.sun.com/xml/ns/javaee" 
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
+      http://java.sun.com/xml/ns/javaee/web-facesconfig_2_0.xsd"
+   version="2.0">
+  <navigation-rule>
+    <from-view-id>/health-plan-signup-2.xhtml</from-view-id>
+    <navigation-case>
+      <from-outcome>accepted</from-outcome>
+      <to-view-id>/page-for-accepted.jsp</to-view-id>
+    </navigation-case>
+    <navigation-case>
+      <from-outcome>rejected</from-outcome>
+      <to-view-id>/page-for-rejected.jsp</to-view-id>
+    </navigation-case>
+  </navigation-rule>
+</faces-config>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pageflow:Pageflow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pageflow="http://www.sybase.com/suade/pageflow" id="pf12463560179530" configfile="/SpringMyFacesCore/WebContent/WEB-INF/faces-config.xml">
+  <nodes xsi:type="pageflow:PFPage" name="jsfLogin" x="48" y="72" id="pf12463560900152" referenceLink="//@navigationRule.3/@fromViewId|" outlinks="pf12463560900153 pf12463560900154" path="/jsfLogin.jsp"/>
+  <nodes xsi:type="pageflow:PFPage" name="jsfBienVenido" x="240" y="48" id="pf12463560900151" referenceLink="//@navigationRule.0/@navigationCase.0/@toViewId|" inlinks="pf12463560900153" path="/jsfBienVenido.jsp"/>
+  <nodes xsi:type="pageflow:PFPage" name="springLogin" x="432" y="99" id="pf12463560900156" referenceLink="//@navigationRule.2/@fromViewId|" outlinks="pf12463560900157 pf12463560900158" path="/springLogin.jsp"/>
+  <nodes xsi:type="pageflow:PFPage" name="springBienVenido" x="660" y="204" id="pf12463560900159" referenceLink="//@navigationRule.1/@navigationCase.0/@toViewId|" inlinks="pf12463560900157" path="/springBienVenido.jsp"/>
+  <nodes xsi:type="pageflow:PFPage" name="springError" x="648" y="36" id="pf124635609001510" referenceLink="//@navigationRule.2/@navigationCase.0/@toViewId|" inlinks="pf12463560900158" path="/springError.jsp"/>
+  <nodes xsi:type="pageflow:PFPage" name="jsfError" x="256" y="216" id="pf12463560900155" referenceLink="//@navigationRule.3/@navigationCase.0/@toViewId|" inlinks="pf12463560900154" path="/jsfError.jsp"/>
+  <links id="pf12463560900153" target="pf12463560900151" source="pf12463560900152" outcome="success"/>
+  <links id="pf12463560900157" target="pf12463560900159" source="pf12463560900156" outcome="success"/>
+  <links id="pf12463560900158" target="pf124635609001510" source="pf12463560900156" outcome="error"/>
+  <links id="pf12463560900154" target="pf12463560900155" source="pf12463560900152" outcome="error"/>
+</pageflow:Pageflow>

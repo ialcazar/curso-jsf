@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<faces-config
+    xmlns="http://java.sun.com/xml/ns/javaee"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facesconfig_1_2.xsd"
+    version="1.2">
+
+	<!--
+		1. Integracion Spring - MyFaces Core 1.2. (DelegatingVariableResolver) 
+		2. Este Variable resolver se encarga de buscar primero los beans en la implementacion de JSF y
+		posteriormente en el contexto definido por Spring.
+		3. Ademas condiguramos como fichero de mensajes i18n messages.
+	-->
+	<application>
+		<el-resolver>org.springframework.web.jsf.el.SpringBeanFacesELResolver</el-resolver>
+		<locale-config>
+			<default-locale>en</default-locale>
+			<supported-locale>en</supported-locale>
+			<supported-locale>es</supported-locale>
+		</locale-config>
+		<message-bundle>messages</message-bundle>
+	</application>
+	<managed-bean>
+		<managed-bean-name>jsfLogin</managed-bean-name>
+		<managed-bean-class>es.jsf.Login</managed-bean-class>
+		<managed-bean-scope>request</managed-bean-scope>
+		<managed-property>
+			<property-name>loginService</property-name>
+			<property-class>es.spring.service.LoginService</property-class>
+			<value>#{loginService}</value>
+		</managed-property>
+	</managed-bean>
+	<navigation-rule>
+		<display-name>jsfLogin</display-name>
+		<from-view-id>/jsfLogin.jsp</from-view-id>
+		<navigation-case>
+			<from-outcome>success</from-outcome>
+			<to-view-id>/jsfBienVenido.jsp</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<display-name>springLogin</display-name>
+		<from-view-id>/springLogin.jsp</from-view-id>
+		<navigation-case>
+			<from-outcome>success</from-outcome>
+			<to-view-id>/springBienVenido.jsp</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<from-view-id>/springLogin.jsp</from-view-id>
+		<navigation-case>
+			<from-outcome>error</from-outcome>
+			<to-view-id>/springError.jsp</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<display-name>jsfLogin</display-name>
+		<from-view-id>/jsfLogin.jsp</from-view-id>
+		<navigation-case>
+			<from-outcome>error</from-outcome>
+			<to-view-id>/jsfError.jsp</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+
+</faces-config>

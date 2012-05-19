@@ -1,0 +1,34 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+<h:head><title>JSF 2.0: Incremental Page Updates with Ajax</title>
+<link href="./css/styles.css" 
+      rel="stylesheet" type="text/css"/> 
+</h:head>
+<h:body>
+<div align="center">
+<table border="5">
+  <tr><th class="title">JSF 2.0: Incremental Page Updates with Ajax</th></tr>
+</table>
+<p/>
+
+<h:form id="bankForm">
+<fieldset>
+  <legend>Bank Customer Lookup (Results in Same Page via Ajax)</legend>
+  Customer ID: 
+  <h:inputText value="#{bankingBean.customerId}"/><br/>
+  Password: 
+  <h:inputSecret value="#{bankingBean.password}"/><br/>
+  <h:commandButton value="Show Current Balance" 
+                   action="#{bankingBean.showBalanceMessage}">
+    <f:ajax execute="@form"   
+            render="bankForm:ajaxMessage"/>
+  </h:commandButton>
+  <br/>
+  <h2><h:outputText value="#{bankingBean.message}"
+                    id="ajaxMessage"/></h2>
+</fieldset>
+</h:form>
+</div></h:body></html>
